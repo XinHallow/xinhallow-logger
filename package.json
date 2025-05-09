@@ -1,0 +1,27 @@
+{
+  "name": "zen-log",
+  "version": "0.0.1",
+  "description": "A simple logger",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "lint": "oxlint",
+    "format": "prettier -w ./src",
+    "prepare": "build"
+  },
+  "keywords": [
+    "logger"
+  ],
+  "author": {
+    "email": "xinhallow@outlook.com",
+    "name": "XinHallow",
+    "url": "https://space.bilibili.com/1566416823"
+  },
+  "license": "UNLICENSED",
+  "packageManager": "pnpm@10.10.0",
+  "devDependencies": {
+    "typescript": "^5.8.3",
+    "prettier": "^3.5.3",
+    "oxlint": "^0.16.9"
+  }
+}
