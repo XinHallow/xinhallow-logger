@@ -7,10 +7,13 @@
     "build": "tsc",
     "lint": "oxlint",
     "format": "prettier -w ./src",
-    "prepare": "tsc"
+    "prepublishOnly": "tsc"
   },
   "keywords": [
     "logger"
+  ],
+  "files": [
+    "dist"
   ],
   "author": {
     "email": "xinhallow@outlook.com",
