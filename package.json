@@ -1,5 +1,5 @@
 {
-  "name": "zen-log",
+  "name": "@xinhallow/logger",
   "version": "0.0.1",
   "description": "A simple logger",
   "main": "dist/index.js",
@@ -27,5 +27,9 @@
     "typescript": "^5.8.3",
     "prettier": "^3.5.3",
     "oxlint": "^0.16.9"
+  },
+  "repository": {
+    "url": "https://github.com/XinHallow/xinhallow-logger.git",
+    "type": "git"
   }
 }
