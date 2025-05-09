@@ -7,7 +7,7 @@
     "build": "tsc",
     "lint": "oxlint",
     "format": "prettier -w ./src",
-    "prepare": "build"
+    "prepare": "tsc"
   },
   "keywords": [
     "logger"
@@ -17,6 +17,10 @@
     "name": "XinHallow",
     "url": "https://space.bilibili.com/1566416823"
   },
+  "exports": {
+    ".": "./dist/export.js"
+  },
+  "types": "./dist/export.d.ts",
   "license": "UNLICENSED",
   "packageManager": "pnpm@10.10.0",
   "devDependencies": {
