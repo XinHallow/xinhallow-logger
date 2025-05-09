@@ -13,7 +13,8 @@
     "logger"
   ],
   "files": [
-    "dist"
+    "dist",
+    "src"
   ],
   "author": {
     "email": "xinhallow@outlook.com",
