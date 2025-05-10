@@ -4,7 +4,7 @@ import { ConsoleTarget, LoggerTargetBase } from "./target";
 
 export class Logger {
   /** 日志记录器名称 */
-  private readonly name: string | undefined;
+  private readonly name: string;
   /** 日志记录器等级 */
   private level: LoggerLevel;
   /** 日志记录器格式化器 */
@@ -19,7 +19,7 @@ export class Logger {
   /** 根据选项创建日志记录器 */
   public constructor(options: LoggerOptions);
   public constructor(options?: LoggerOptions) {
-    this.name = options?.name;
+    this.name = options?.name ?? "Anonymous";
     this.level = options?.level ?? LoggerLevel.ALL;
     this.target = options?.target ?? [new ConsoleTarget()];
     this.formatter = options?.formatter ?? new LoggerFormatter();
@@ -61,7 +61,7 @@ export class Logger {
    */
   public fatal(message: string) {
     if (
-      LoggerLevelNumber.get(LoggerLevel.FATAL)! <
+      LoggerLevelNumber.get(LoggerLevel.FATAL)! >
       LoggerLevelNumber.get(this.level)!
     )
       return;
@@ -74,7 +74,7 @@ export class Logger {
    */
   public error(message: string) {
     if (
-      LoggerLevelNumber.get(LoggerLevel.ERROR)! <
+      LoggerLevelNumber.get(LoggerLevel.ERROR)! >
       LoggerLevelNumber.get(this.level)!
     )
       return;
@@ -87,7 +87,7 @@ export class Logger {
    */
   public warn(message: string) {
     if (
-      LoggerLevelNumber.get(LoggerLevel.WARN)! <
+      LoggerLevelNumber.get(LoggerLevel.WARN)! >
       LoggerLevelNumber.get(this.level)!
     )
       return;
@@ -100,7 +100,7 @@ export class Logger {
    */
   public info(message: string) {
     if (
-      LoggerLevelNumber.get(LoggerLevel.INFO)! <
+      LoggerLevelNumber.get(LoggerLevel.INFO)! >
       LoggerLevelNumber.get(this.level)!
     )
       return;
@@ -113,7 +113,7 @@ export class Logger {
    */
   public debug(message: string) {
     if (
-      LoggerLevelNumber.get(LoggerLevel.DEBUG)! <
+      LoggerLevelNumber.get(LoggerLevel.DEBUG)! >
       LoggerLevelNumber.get(this.level)!
     )
       return;
@@ -126,7 +126,7 @@ export class Logger {
    */
   public trace(message: string) {
     if (
-      LoggerLevelNumber.get(LoggerLevel.TRACE)! <
+      LoggerLevelNumber.get(LoggerLevel.TRACE)! >
       LoggerLevelNumber.get(this.level)!
     )
       return;
@@ -142,7 +142,7 @@ export class Logger {
     const formatResult = this.formatter.format({
       timestamp: Date.now(),
       message: message,
-      name: this.name ?? "Anonymous",
+      name: this.name,
       level: level,
     });
 
@@ -161,9 +161,9 @@ export interface LoggerOptions {
   /** 日志记录器显示等级 */
   level?: LoggerLevel;
   /** 日志记录器格式化器 */
-  formatter: LoggerFormatter;
+  formatter?: LoggerFormatter;
   /** 日志记录器输出对象 */
-  target: LoggerTargetBase[];
+  target?: LoggerTargetBase[];
   /** 是否同步记录 */
   sync?: boolean;
 }

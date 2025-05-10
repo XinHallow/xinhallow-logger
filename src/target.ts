@@ -20,6 +20,6 @@ export class ConsoleTarget implements LoggerTargetBase {
 
   write(message: string): Promise<void> {
     console.log(message);
-    return Promise.resolve(undefined);
+    return Promise.resolve();
   }
 }
