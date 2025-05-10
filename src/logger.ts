@@ -48,7 +48,7 @@ export class Logger {
    */
   public critical(message: string) {
     if (
-      LoggerLevelNumber.get(LoggerLevel.CRITICAL)! <
+      LoggerLevelNumber.get(LoggerLevel.CRITICAL)! >
       LoggerLevelNumber.get(this.level)!
     )
       return;
@@ -147,9 +147,9 @@ export class Logger {
     });
 
     if (this.sync) {
-      this.target.forEach((target) => target.writeSync(formatResult));
+      this.target.forEach((target) => target.writeSync(formatResult, level));
     } else {
-      this.target.forEach((target) => target.write(formatResult));
+      this.target.forEach((target) => target.write(formatResult, level));
     }
   }
 }
